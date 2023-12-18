@@ -86,3 +86,16 @@ var finances = [
   ['Jan-2017', 138230],
   ['Feb-2017', 671099],
 ];
+
+// Defining Variables
+totalMonths = finances.length;
+var totalPnL = 0;
+// var month;
+// var amount;
+
+for (var i=0; i < totalMonths; i++){
+  totalPnL = totalPnL + finances [i][1];
+}
+
+console.log (`Total Months: ${totalMonths}`)
+console.log (`Total: ${totalPnL}`)
