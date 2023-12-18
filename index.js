@@ -90,12 +90,30 @@ var finances = [
 // Defining Variables
 totalMonths = finances.length;
 var totalPnL = 0;
-// var month;
-// var amount;
+var totalChange = 0;
+var greatestIncreasePnL = Math.max (totalChange);
 
-for (var i=0; i < totalMonths; i++){
+// Loop to enable the calculation of the net total amount of Profit/Losses over the entire period.
+for (var i=0; i < totalMonths; i++) {
   totalPnL = totalPnL + finances [i][1];
+}
+
+// Change Loop
+for (var i = 1; i < totalMonths; i++) {
+  var currentPnL = finances [i][1];
+  var previousPnL = finances [i-1][1];
+
+  var change = currentPnL - previousPnL;
+  totalChange += change;
+  var averageChange = totalChange / (totalMonths - 1);
+
+  if (change > greatestIncreasePnL) {
+    greatestIncreasePnL = change;
+  }
+
 }
 
 console.log (`Total Months: ${totalMonths}`)
 console.log (`Total: ${totalPnL}`)
+console.log (`Average Change: ${averageChange}`)
+console.log(`Greatest increase: ${greatestIncreasePnL}`);
