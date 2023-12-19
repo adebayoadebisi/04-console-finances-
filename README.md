@@ -25,7 +25,14 @@ The following images shows the JavaScript Console displaying the required financ
 
 ![JavaScript Console: Functionality](./assets/Images/screenrecording-finance-console.gif)
 
-> **Note** This is a video of the deployed demo portfolio page showing functionality.
+> **Note** This is a video of the JavaScript Console showing all the required records.
+
+## References
+[MDN Web Docs - Math.max()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/max)
+
+[MDN Web Docs - Math.min()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/min)
+
+[JavaScript For Loop](https://www.w3schools.com/js/js_loop_for.asp)
 
 ## License
 Licensed under the MIT License
@@ -34,4 +41,4 @@ Licensed under the MIT License
 URL: https://github.com/adebayoadebisi/04-console-finances-challenge  
 
 ## Deployed Web Application
-URL: https://adebayoadebisi.github.io/03-bootstrap-portfolio/ 
+URL: https://adebayoadebisi.github.io/04-console-finances-challenge/
