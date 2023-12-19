@@ -105,12 +105,11 @@ var finances = [
 totalMonths = finances.length;
 var totalPnL = 0;
 
-// Variables for the changes including maximum changes and minimum changes.
+// Variables for the working out of changes including maximum changes (greatest increase) and minimum changes (lowest increase).
 var totalChange = 0;
 
 var greatestIncreasePnL = Math.max (totalChange);
 var greatestIncreasePnLmonths;
-
 
 var greatestDecreasePnL = Math.min (totalChange);
 var greatestDecreasePnLmonths;
@@ -120,7 +119,7 @@ for (var i=0; i < totalMonths; i++) {
   totalPnL = totalPnL + finances [i][1];
 }
 
-// Change For Loop
+// 'For Loop' Change Parameters 
 for (var i = 1; i < totalMonths; i++) {
   var currentPnL = finances [i][1];
   var previousPnL = finances [i-1][1];
