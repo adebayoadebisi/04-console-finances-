@@ -94,6 +94,9 @@ var totalChange = 0;
 var greatestIncreasePnL = Math.max (totalChange);
 var greatestIncreasePnLmonths;
 
+var greatestDecreasePnL = Math.min (totalChange);
+var greatestDecreasePnLmonths;
+
 // Loop to enable the calculation of the net total amount of Profit/Losses over the entire period.
 for (var i=0; i < totalMonths; i++) {
   totalPnL = totalPnL + finances [i][1];
@@ -113,10 +116,15 @@ for (var i = 1; i < totalMonths; i++) {
     greatestIncreasePnLmonths = finances [i][0];
   }
 
+  if (change < greatestDecreasePnL) {
+    greatestDecreasePnL = change;
+    greatestDecreasePnLmonths = finances [i][0];
+  }
 }
 
 console.log (`Total Months: ${totalMonths}`)
 console.log (`Total: ${totalPnL}`)
-console.log (`Average Change: ${averageChange}`)
+console.log (`Average Change: ${averageChange.toFixed (2)}`)
 console.log(`Greatest Increase in Profits/Losses: ${greatestIncreasePnLmonths} ($${greatestIncreasePnL})`);
+console.log(`Greatest Decrease in Profits/Losses: ${greatestDecreasePnLmonths} ($${greatestDecreasePnL})`);
 
