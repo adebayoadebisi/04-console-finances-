@@ -90,9 +90,14 @@ var finances = [
 // Defining Variables
 totalMonths = finances.length;
 var totalPnL = 0;
+
+
 var totalChange = 0;
+
+
 var greatestIncreasePnL = Math.max (totalChange);
 var greatestIncreasePnLmonths;
+
 
 var greatestDecreasePnL = Math.min (totalChange);
 var greatestDecreasePnLmonths;
@@ -122,9 +127,10 @@ for (var i = 1; i < totalMonths; i++) {
   }
 }
 
-console.log (`Total Months: ${totalMonths}`)
-console.log (`Total: ${totalPnL}`)
-console.log (`Average Change: ${averageChange.toFixed (2)}`)
+console.log (`Financial Analysis \n_ _ _ _ _ _ _ _ _ _ _`);
+console.log (`Total Months: ${totalMonths}`);
+console.log (`Total: $${totalPnL}`);
+console.log (`Average Change: ${averageChange.toFixed (2)}`);
 console.log(`Greatest Increase in Profits/Losses: ${greatestIncreasePnLmonths} ($${greatestIncreasePnL})`);
 console.log(`Greatest Decrease in Profits/Losses: ${greatestDecreasePnLmonths} ($${greatestDecreasePnL})`);
 
