@@ -102,7 +102,7 @@ var finances = [
 
 // Defining Variables.
 // Variables for Total Months and Net total amount of Profit/Losses.
-totalMonths = finances.length;
+var totalMonths = finances.length;
 var totalPnL = 0;
 
 // Variables for the working out of changes including maximum changes (greatest increase) and minimum changes (lowest increase).
