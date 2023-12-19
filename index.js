@@ -87,13 +87,26 @@ var finances = [
   ['Feb-2017', 671099],
 ];
 
-// Defining Variables
+// Plan of Action
+// For the ‘finances’ data set we’re required to calculate:
+// - The total number of months – This is Equivalent to the length of the data set array. Using ‘finances.length’ to achieve this. 
+
+// - The net total amount of Profit/Losses - This is sum of all the amounts. Will apply a ‘For Loop’.
+
+// - The average of the changes in Profit/Losses – This will be the current Profit/Losses – previous Profit/Losses which will give the change. Then workout the total change and can be used to workout the average change, (Total/(Number of months - 1)). I will create another ‘For Loop’ for the changes.
+
+// - The greatest increase in Profit/Losses is the maximum change in Profit/Losses and will utilise the same ‘For Loop’.
+
+// - The greatest decrease in Profit/Losses is the minimum change in Profit/Losses and will utilise the same ‘For Loop’.
+
+
+// Defining Variables.
+// Variables for Total Months and Net total amount of Profit/Losses.
 totalMonths = finances.length;
 var totalPnL = 0;
 
-
+// Variables for the changes including maximum changes and minimum changes.
 var totalChange = 0;
-
 
 var greatestIncreasePnL = Math.max (totalChange);
 var greatestIncreasePnLmonths;
@@ -107,7 +120,7 @@ for (var i=0; i < totalMonths; i++) {
   totalPnL = totalPnL + finances [i][1];
 }
 
-// Change Loop
+// Change For Loop
 for (var i = 1; i < totalMonths; i++) {
   var currentPnL = finances [i][1];
   var previousPnL = finances [i-1][1];
