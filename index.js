@@ -103,46 +103,44 @@ var finances = [
 // Defining Variables.
 // Variables for Total Months and Net total amount of Profit/Losses.
 var totalMonths = finances.length;
-var totalPnL = 0;
-
-// Variables for the working out of changes including maximum changes (greatest increase) and minimum changes (lowest increase).
-var totalChange = 0;
-
-var greatestIncreasePnL = Math.max (totalChange);
-var greatestIncreasePnLmonths;
-
-var greatestDecreasePnL = Math.min (totalChange);
-var greatestDecreasePnLmonths;
-
-// Loop to enable the calculation of the net total amount of Profit/Losses over the entire period.
-for (var i=0; i < totalMonths; i++) {
-  totalPnL = totalPnL + finances [i][1];
-}
+var total = 0;
+var change = 0;
+var netChange = 0;
+var previousAmount = 0;
+var greatestIncrease = Math.max(netChange);
+var greatestIncreaseMonths;
+var greatestDecrease = Math.min(netChange);
+var greatestDecreaseMonths;
 
 // 'For Loop' Change Parameters 
-for (var i = 1; i < totalMonths; i++) {
-  var currentPnL = finances [i][1];
-  var previousPnL = finances [i-1][1];
+for (var i = 0; i < totalMonths; i++) {
+  var current = finances[i];
+  var currentDate = current[0];
+  var currentAmount = current[1];
+  total += currentAmount;
 
-  var change = currentPnL - previousPnL;
-  totalChange += change;
-  var averageChange = totalChange / (totalMonths - 1);
-
-  if (change > greatestIncreasePnL) {
-    greatestIncreasePnL = change;
-    greatestIncreasePnLmonths = finances [i][0];
+  if (i > 0) {
+    previousAmount = finances[i-1][1];
+    change = currentAmount - previousAmount;
+  }
+  netChange += change;
+  
+  if (change > greatestIncrease) {
+    greatestIncrease = change;
+    greatestIncreaseMonths = finances [i+1][0];
   }
 
-  if (change < greatestDecreasePnL) {
-    greatestDecreasePnL = change;
-    greatestDecreasePnLmonths = finances [i][0];
+  if (change < greatestDecrease) {
+    greatestDecrease = change;
+    greatestDecreaseMonths = finances [i+1][0];
   }
 }
+var averageChange = netChange / (totalMonths - 1);
 
 console.log (`Financial Analysis \n_ _ _ _ _ _ _ _ _ _ _`);
 console.log (`Total Months: ${totalMonths}`);
-console.log (`Total: $${totalPnL}`);
+console.log (`Total: $${total}`);
 console.log (`Average Change: ${averageChange.toFixed (2)}`);
-console.log(`Greatest Increase in Profits/Losses: ${greatestIncreasePnLmonths} ($${greatestIncreasePnL})`);
-console.log(`Greatest Decrease in Profits/Losses: ${greatestDecreasePnLmonths} ($${greatestDecreasePnL})`);
+console.log(`Greatest Increase in Profits/Losses: ${greatestIncreaseMonths} ($${greatestIncrease})`);
+console.log(`Greatest Decrease in Profits/Losses: ${greatestDecreaseMonths} ($${greatestDecrease})`);
 
